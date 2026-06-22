@@ -9,6 +9,9 @@ app.use(express.static('public'));
 app.post('/api/check-password', (req, res) => {
     const { password } = req.body;
 
+    console.log("Entered:", password);
+    console.log("Env Password:", process.env.DIARY_PASSWORD);
+
     if (password === process.env.DIARY_PASSWORD) {
         res.json({ success: true });
     } else {
